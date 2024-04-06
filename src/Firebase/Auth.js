@@ -1,8 +1,8 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
-const auth = getAuth();
+import { auth } from "./Config";
 
-const createUserWithEmailAndPassword = (email, password) => {
+const doCreateUserWithEmailAndPassword = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
@@ -15,4 +15,4 @@ const createUserWithEmailAndPassword = (email, password) => {
     });
 };
 
-export default { createUserWithEmailAndPassword };
+export default { doCreateUserWithEmailAndPassword };
